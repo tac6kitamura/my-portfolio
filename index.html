@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Web Designer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons Library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Montserrat:wght@700&display=swap');
+
+        :root {
+            --primary: #2C3E50;
+            --accent: #E74C3C;
+            --bg-light: #ECF0F1;
+            --text-light: #2C3E50;
+            --bg-dark: #1A252F;
+            --text-dark: #ECF0F1;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Mode Styles */
+        body.light-mode {
+            background-color: var(--bg-light);
+            color: var(--text-light);
+        }
+
+        body.dark-mode {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+
+        /* Hero Background */
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.7)),
+                        url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom UI */
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dark-mode .input-field {
+            background-color: #2C3E50;
+            border-color: #34495E;
+            color: white;
+        }
+
+        .light-mode .input-field {
+            background-color: white;
+            border-color: #BDC3C7;
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 px-6 py-4 flex justify-between items-center transition-all duration-300" id="navbar">
+        <div class="text-2xl font-montserrat font-bold tracking-tighter" style="color: var(--accent);">PORTFOLIO.</div>
+        <div class="flex items-center gap-6">
+            <ul class="hidden md:flex gap-8 font-medium">
+                <li><a href="#hero" class="hover:opacity-70 transition">Home</a></li>
+                <li><a href="#about" class="hover:opacity-70 transition">About</a></li>
+                <li><a href="#contact" class="hover:opacity-70 transition">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition">
+                <i data-lucide="moon" id="theme-icon" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative h-screen flex items-center justify-center text-white overflow-hidden">
+        <div class="absolute inset-0 hero-gradient"></div>
+        <div class="relative z-10 text-center px-4 max-w-4xl">
+            <h1 class="font-montserrat text-5xl md:text-7xl font-bold mb-6 reveal">
+                Colors Logic,<br><span style="color: var(--accent);">Designs Magic.</span>
+            </h1>
+            <p class="text-lg md:text-xl mb-8 leading-relaxed opacity-90 reveal" style="transition-delay: 0.2s;">
+                色彩検定1級の知識と確かなコーディング技術で、企業の思いを「伝わる」形に。<br class="hidden md:block">
+                CVR向上に貢献するWEBデザインを提供します。
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center reveal" style="transition-delay: 0.4s;">
+                <a href="#about" class="btn-primary px-8 py-4 rounded-full font-bold text-lg">実績を見る</a>
+                <a href="#contact" class="bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 px-8 py-4 rounded-full font-bold text-lg transition">お問い合わせ</a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <i data-lucide="chevron-down" class="w-8 h-8"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-sm uppercase tracking-[0.3em] font-bold mb-2" style="color: var(--accent);">Profile</h2>
+                <h3 class="text-4xl font-montserrat font-bold">Who I am</h3>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <div class="relative w-64 h-64 mx-auto md:ml-0 overflow-hidden rounded-full border-4 border-white shadow-xl">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=b6e3f4" alt="プロフィール画像" class="w-full h-full object-cover bg-slate-200">
+                    </div>
+                </div>
+                <div class="reveal" style="transition-delay: 0.2s;">
+                    <h4 class="text-2xl font-bold mb-4">はじめまして、WEBデザイナーの [名前] です。</h4>
+                    <p class="mb-6 leading-relaxed opacity-80">
+                        栃木県のTBC学院で2年間、WEBデザインを勉強してきました。現在はフリーランスとして東京で活動しています。
+                    </p>
+                    <div class="p-6 rounded-2xl glass-card border-l-4" style="border-left-color: var(--accent);">
+                        <h5 class="font-bold text-xl mb-2">My Strength</h5>
+                        <p class="opacity-90">ただキレイなだけでなく、色彩心理学に基づいた配色設計が得意です。論理的なデザインで、ユーザーの心に響く体験を創造します。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 bg-black/5 dark:bg-white/5">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-sm uppercase tracking-[0.3em] font-bold mb-2" style="color: var(--accent);">Contact</h2>
+                <h3 class="text-4xl font-montserrat font-bold">Get in Touch</h3>
+                <p class="mt-4 opacity-70">制作のご依頼、お見積り、その他のご相談はお気軽にどうぞ。<br>2営業日以内に返信します。</p>
+            </div>
+
+            <form id="contact-form" class="reveal space-y-6" style="transition-delay: 0.2s;">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-bold mb-2">お名前</label>
+                        <input type="text" required class="input-field w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-red-500 outline-none transition" placeholder="山田 太郎">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">メールアドレス</label>
+                        <input type="email" required class="input-field w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-red-500 outline-none transition" placeholder="example@mail.com">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold mb-2">お問い合わせ内容</label>
+                    <textarea required rows="5" class="input-field w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-red-500 outline-none transition" placeholder="ご相談内容を入力してください"></textarea>
+                </div>
+                <button type="submit" class="btn-primary w-full py-4 rounded-lg font-bold text-lg">メッセージを送信する</button>
+            </form>
+
+            <div class="mt-16 flex justify-center gap-8 reveal">
+                <a href="#" class="hover:scale-110 transition" style="color: var(--primary);">
+                    <i data-lucide="twitter"></i>
+                </a>
+                <a href="#" class="hover:scale-110 transition" style="color: var(--primary);">
+                    <i data-lucide="instagram"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-sm opacity-50">
+        &copy; 2024 Professional Portfolio. All rights reserved.
+    </footer>
+
+    <script>
+        // Safe Icon Initialization
+        function initIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        // Theme Toggle Logic
+        const body = document.body;
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('light-mode')) {
+                body.classList.replace('light-mode', 'dark-mode');
+                themeIcon.setAttribute('data-lucide', 'sun');
+            } else {
+                body.classList.replace('dark-mode', 'light-mode');
+                themeIcon.setAttribute('data-lucide', 'moon');
+            }
+            initIcons();
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+
+        // Navbar scroll effect
+        window.onscroll = function() {
+            const nav = document.getElementById('navbar');
+            if (window.pageYOffset > 50) {
+                nav.classList.add('bg-white/80', 'dark:bg-slate-900/80', 'backdrop-blur-md', 'shadow-sm');
+            } else {
+                nav.classList.remove('bg-white/80', 'dark:bg-slate-900/80', 'backdrop-blur-md', 'shadow-sm');
+            }
+        };
+
+        // Form Submit
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.onsubmit = function(e) {
+                e.preventDefault();
+                const msg = 'メッセージありがとうございます。デモのため送信はされませんが、デザインの実装を確認いただけます。';
+                const toast = document.createElement('div');
+                toast.className = 'fixed bottom-10 left-1/2 -translate-x-1/2 bg-slate-800 text-white px-6 py-3 rounded-full shadow-2xl z-[100] transition-opacity duration-500';
+                toast.innerText = msg;
+                document.body.appendChild(toast);
+                setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 500); }, 3000);
+            };
+        }
+
+        // Initial setup on window load
+        window.addEventListener('load', () => {
+            initIcons();
+            reveal();
+        });
+    </script>
+</body>
+</html>
